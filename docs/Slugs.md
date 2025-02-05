@@ -2,7 +2,6 @@
 <!-- elixir.api.post = echolive.com/api/<slugs> -->
 ---
 ## Auth Endpoints.
----
 
 ### Login.
 
@@ -14,9 +13,10 @@
     output:
         ERROR   -> {error: string}
         Success -> Redirect to dashboard page.
+```
 ---
 ### Sign up.
-
+```
 {{elixir.api.post}}/auth/signup (for authenticate) [high] ["TODO"]
     -- check for confirm_password.
     input: 
