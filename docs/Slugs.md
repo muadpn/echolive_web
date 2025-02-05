@@ -1,10 +1,12 @@
 # Router for Elixir Endpoints.
 <!-- elixir.api.post = echolive.com/api/<slugs> -->
 ---
-## Auth Endpoints
+## Auth Endpoints.
 ---
----
-### Login
+
+### Login.
+
+```
 {{elixir.api.post}}/auth/login (for authenticate)  [high] ["TODO"] 
     input: 
         - email:string
@@ -13,7 +15,8 @@
         ERROR   -> {error: string}
         Success -> Redirect to dashboard page.
 ---
-### Sign up
+### Sign up.
+
 {{elixir.api.post}}/auth/signup (for authenticate) [high] ["TODO"]
     -- check for confirm_password.
     input: 
@@ -22,19 +25,24 @@
     output:
     ERROR   -> {error: string}
     Success -> prompt user to check email then -> Redirect to login page after 4 seconds.. 
+```
 ---
-### Forgot Password 
+### Forgot Password.
+
+```
 {{elixir.api.post}}/auth/forgot-password  [low] ["TODO"]
     - input: 
         - email:string
     - output: (always success)
         success -> Prompt users to check email. 
+```
 ---
 
-## Protected Endpoints
+## Protected Endpoints.
 ---
----
-### Website add
+### Website add.
+
+```
 {{elixir.api.post}}/website  [high] ["TODO"]
     - input: 
         - app_name: string
@@ -43,13 +51,18 @@
     - output: 
         success -> {success: string}
         error: -> {error: string} 
+```        
 ---
-### Website Get details
+### Website Get details.
+```
 {{elixir.api.get}}/website/:id [high] ["TODO"]
     - input: none.
     - output: {id:string, app_name: string, app_url: string, total_visits?: number}
+```
 ---
-### Website's Get details
+### Website's Get details.
+```
 {{elixir.api.get}}/websites/:id [high] ["TODO"]
     - input: none
     - output: {id:string, app_name: string, app_url: string, total_visits?: number}[]
+```
