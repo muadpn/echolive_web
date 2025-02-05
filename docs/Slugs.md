@@ -1,4 +1,5 @@
 # Router for Elixir Endpoints.
+<!-- elixir.api.post = echolive.com/api/<slugs> -->
 ---
 ## Auth Endpoints
 ---
