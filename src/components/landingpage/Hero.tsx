@@ -27,7 +27,7 @@ export default function Hero() {
               />
             </div>
             <h1 className="mb-6 max-w-md text-5xl font-semibold tracking-tight md:max-w-xl md:text-7xl">
-              {/* <SplitText
+              <SplitText
                 text="Real-time Widgets Made Simple"
                 className="mb-6 text-5xl font-semibold tracking-tight md:text-7xl"
                 delay={60}
@@ -38,7 +38,7 @@ export default function Hero() {
                 animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
                 threshold={0.2}
                 rootMargin="-50px"
-              /> */}
+              />
               <br />
             </h1>
             <p className="text-muted-foreground mb-8 max-w-2xl text-xl">
