@@ -1,12 +1,11 @@
 import "../styles/globals.css";
 import { type Metadata } from "next";
-import { Toaster } from "sonner";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/providers/theme-provider";
 import Navbar from "@/components/landingpage/Navbar";
 import Footer from "@/components/landingpage/Footer";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "sonner";
 
 const catamaran = Inter({ subsets: ["latin"] });
 
@@ -26,8 +25,8 @@ export default function RootLayout({
           <TRPCReactProvider>
             <Navbar />
             {children}
+            <Toaster expand richColors/>
             <Footer />
-            <Toaster />
           </TRPCReactProvider>
         </ThemeProvider>
       </body>
