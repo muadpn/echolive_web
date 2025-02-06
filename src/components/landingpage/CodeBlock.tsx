@@ -78,7 +78,7 @@ export default function CodeBlock() {
                     initial={{ width: 0  }}
                     animate={{ width: "90%", height: 2 }}
                     transition={{ duration: 2, delay: 0.2 }}
-                    className="absolute h-px bg-gradient-to-r from-primary/80 to-transparent top-[18px]"
+                    className="absolute h-px bg-gradient-to-r from-primary/80 to-transparent top-2"
                   />
                 </span>
               </h2>

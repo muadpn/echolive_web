@@ -19,7 +19,7 @@ export default function Hero() {
                 className="custom-class "
               />
             </div>
-            <h1 className="text-5xl md:text-7xl  font-semibold tracking-tight mb-6 max-w-md md:max-w-xl lg:max-w-3xl">
+            <h1 className="text-5xl md:text-7xl  font-semibold tracking-tight mb-6 max-w-md md:max-w-xl lg:max-w-4xl">
               <SplitText
                 text="Real-time Widgets Made Simple"
                 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200  to-purple-300"
