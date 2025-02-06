@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { type Metadata } from "next";
+import { Toaster } from "sonner";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/providers/theme-provider";
