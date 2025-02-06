@@ -23,10 +23,9 @@ export default function CodeBlock() {
     const tagInterval = setInterval(() => {
       setActiveTag((prev) => (prev + 1) % tags.length);
     }, 3000);
-
+  
     return () => clearInterval(tagInterval);
-  }, []);
-
+  }, [tags.length]);
   const copyToClipboard = async (text: string, type: string) => {
     try {
       await navigator.clipboard.writeText(text);
