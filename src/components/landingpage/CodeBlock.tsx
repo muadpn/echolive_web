@@ -12,7 +12,7 @@ export default function CodeBlock() {
   const [activeTag, setActiveTag] = useState(0);
 
   const tags = [
-    { name: "Next.js", color: "from-emerald-500 to-emerald-700" },
+    { name: "Next.js", color: "from-purple-500 to-purple-700" },
     { name: "React", color: "from-cyan-500 to-cyan-700" },
     { name: "Vue", color: "from-green-500 to-green-700" },
     { name: "Angular", color: "from-red-500 to-red-700" },
@@ -23,9 +23,10 @@ export default function CodeBlock() {
     const tagInterval = setInterval(() => {
       setActiveTag((prev) => (prev + 1) % tags.length);
     }, 3000);
-  
+
     return () => clearInterval(tagInterval);
-  }, [tags.length]);
+  }, []);
+
   const copyToClipboard = async (text: string, type: string) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -55,46 +56,40 @@ export default function CodeBlock() {
 
   return (
     <section className="py-32 relative overflow-hidden hero-gradient">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(64,64,64,0.1),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none " />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(81,51,133,0.1),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none" />
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="container mx-auto px-4 relative "
+        className="container mx-auto px-4 relative"
       >
-        <div className="grid lg:grid-cols-2 gap-16 items-center ">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div variants={itemVariants} className="">
-            <div className="mb-6 ">
+            <div className="mb-6">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Works with
                 <br />
-                <span className=" relative  bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-500 to-emerald-700">
+                <span className=" relative  bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary to-emerald-500">
                   your stack
                   <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: "40%" }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="absolute h-px bg-gradient-to-r from-primary/50 to-transparent top-5 "
+                    initial={{ width: 0  }}
+                    animate={{ width: "90%", height: 2 }}
+                    transition={{ duration: 2, delay: 0.2 }}
+                    className="absolute h-px bg-gradient-to-r from-primary/80 to-transparent top-2"
                   />
                 </span>
               </h2>
             </div>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-xl text-zinc-400 mb-8"
-            >
+            <motion.p variants={itemVariants} className="text-xl text-purple-200/60">
               Integrate it into your language or framework within minutes and
               unlock a simpler developer workflow.
             </motion.p>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap gap-4 mb-8"
-            >
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-8">
               {tags.map((tag, index) => (
                 <motion.div
                   key={tag.name}
@@ -142,14 +137,13 @@ export default function CodeBlock() {
           <motion.div
             variants={itemVariants}
             className="relative"
-            // whileHover={{ scale: 1.0 }}
             transition={{ duration: 0.3 }}
           >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="absolute inset-0 bg-gradient-to-r from-primary/20 via-emerald-500/10 to-transparent rounded-xl blur-3xl"
+              className="absolute inset-0 bg-gradient-to-r from-primary/20 via-purple-500/10 to-transparent rounded-xl blur-3xl"
             />
 
             <div className="glass-card rounded-xl overflow-hidden border border-white/10 shadow-2xl backdrop-blur-sm relative z-10">
@@ -166,7 +160,7 @@ export default function CodeBlock() {
                     )
                   )}
                 </div>
-                <div className="text-xs text-emerald-400 font-mono">
+                <div className="text-xs text-purple-400 font-mono">
                   example.ts
                 </div>
               </div>
@@ -186,10 +180,7 @@ analytics.track({
 })`}</code>
                 </pre>
 
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  className="absolute right-2 top-2"
-                >
+                <motion.div whileHover={{ scale: 1.1 }} className="absolute right-2 top-2">
                   <Button
                     variant="ghost"
                     size="icon"
@@ -202,7 +193,7 @@ analytics.track({
                     }
                   >
                     {copied === "code" ? (
-                      <Check className="h-4 w-4 text-emerald-400" />
+                      <Check className="h-4 w-4 text-purple-400" />
                     ) : (
                       <Copy className="h-4 w-4 text-zinc-400" />
                     )}
@@ -215,7 +206,7 @@ analytics.track({
               variants={itemVariants}
               className="mt-6 flex items-center justify-between px-4"
             >
-              <div className="text-sm text-zinc-400 font-medium">
+              <div className="text-sm text-purple-200/60">
                 Ready to use in under 3 minutes
               </div>
               <div className="flex items-center gap-2">
@@ -231,7 +222,7 @@ analytics.track({
                   }}
                   className="w-2 h-2 rounded-full bg-emerald-400"
                 />
-                <span className="text-xs text-emerald-400 font-medium">
+                <span className="text-xs text-purple-400 font-medium">
                   Live Preview
                 </span>
               </div>

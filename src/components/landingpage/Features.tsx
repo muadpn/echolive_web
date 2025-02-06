@@ -6,7 +6,6 @@ import { Shield, Users, Zap } from "lucide-react";
 import { useState } from "react";
 import DemoCount from "./DemoCount";
 
-
 interface FeatureCardProps {
   icon: LucideIcon;
   title: string;
@@ -31,30 +30,30 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="bg-[#0a0f0d] border border-emerald-900/40 p-8 rounded-lg relative z-10">
+      <div className="bg-[#0e0f21] border border-purple-900/40 p-8 rounded-lg relative z-10">
         <motion.div
           transition={{ duration: 0.7, ease: "easeInOut" }}
           className="relative mb-6 w-14 h-14 flex items-center justify-center"
         >
           <div
-            className={`absolute inset-0 bg-emerald-500/10 rounded-lg transition-all duration-300 ${
+            className={`absolute inset-0 bg-purple-500/10 rounded-lg transition-all duration-300 ${
               isHovered ? "scale-90 rotate-45" : "scale-0"
             }`}
           />
           <Icon
-            className="h-8 w-8 text-emerald-500 relative z-10"
+            className="h-8 w-8 text-purple-500 relative z-10"
             strokeWidth={1.5}
           />
         </motion.div>
 
-        <h3 className="text-xl font-medium mb-3 text-white/90 group-hover:text-emerald-400 transition-colors">
+        <h3 className="text-xl font-medium mb-3 text-white/90 group-hover:text-purple-400 transition-colors">
           {title}
         </h3>
 
         <p className="text-gray-400 leading-relaxed text-sm">{description}</p>
 
         <motion.div
-          className="absolute bottom-0 left-0 h-[2px] bg-emerald-500/50"
+          className="absolute bottom-0 left-0 h-[2px] bg-purple-500/50"
           initial={{ width: "0%" }}
           animate={{ width: isHovered ? "100%" : "0%" }}
           transition={{ duration: 0.3 }}
@@ -96,7 +95,7 @@ export default function Features() {
           className="text-center mb-14"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-            Why Choose <span className="text-emerald-500">EchoLive</span>?
+            Why Choose <span className="text-purple-500">EchoLive</span>?
           </h2>
           <p className="text-xl text-zinc-400">
             Experience the future of web analytics with our cutting-edge
