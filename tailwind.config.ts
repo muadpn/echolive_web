@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
-export default {
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,8 +17,8 @@ export default {
       },
       keyframes: {
         shine: {
-          "0%": { "background-position": "100%" },
-          "100%": { "background-position": "-100%" },
+          "0%": { backgroundPosition: "100%" },
+          "100%": { backgroundPosition: "-100%" },
         },
         spotlight: {
           "0%": {
@@ -84,5 +85,7 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  plugins: [tailwindcssAnimate],
+};
+
+export default config;
