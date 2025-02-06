@@ -19,9 +19,9 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={catamaran.className}>
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+    <html lang="en" className={catamaran.className} suppressHydrationWarning>
+      <body >
+        <ThemeProvider  attribute="class" defaultTheme="dark"  enableSystem>
           <TRPCReactProvider>
             <Navbar />
             {children}
