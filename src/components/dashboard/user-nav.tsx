@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   DropdownMenu,
@@ -7,9 +7,10 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { signout } from "@/app/actions/auth";
 
 export function UserNav() {
   return (
@@ -31,20 +32,14 @@ export function UserNav() {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          Profile
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          Billing
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          Settings
-        </DropdownMenuItem>
+        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem>Billing</DropdownMenuItem>
+        <DropdownMenuItem>Settings</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          Log out
+        <DropdownMenuItem asChild>
+          <Button onClick={signout}>Log out</Button>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
