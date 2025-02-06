@@ -1,10 +1,13 @@
-import "@/styles/globals.css";
+import "../styles/globals.css";
 import { type Metadata } from "next";
 import { TRPCReactProvider } from "@/trpc/react";
-import { Catamaran } from "next/font/google";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/providers/theme-provider";
+import Navbar from "@/components/landingpage/Navbar";
+import Footer from "@/components/landingpage/Footer";
+import { Toaster } from "@/components/ui/toaster";
 
-const catamaran = Catamaran({ subsets: ["latin"] });
+const catamaran = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "EchoLive - Real-time Web Widgets",
@@ -19,7 +22,12 @@ export default function RootLayout({
     <html lang="en" className={catamaran.className}>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <TRPCReactProvider>{children}</TRPCReactProvider>
+          <TRPCReactProvider>
+            <Navbar />
+            {children}
+            <Footer />
+            <Toaster />
+          </TRPCReactProvider>
         </ThemeProvider>
       </body>
     </html>
