@@ -7,9 +7,9 @@ export default function Pricing() {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background " />
       <div className="container mx-auto px-4 relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
             Simple, Transparent{" "}
-            <span className="text-emerald-500">Pricing</span>
+            <span className="text-primary/90">Pricing</span>
           </h2>
           <p className="text-xl text-muted-foreground">
             Start for free, scale as you grow

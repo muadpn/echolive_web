@@ -6,49 +6,54 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.bg-grid-white {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.02)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
 @layer base {
   :root {
-    --background: 180 20% 99%;
-    --foreground: 180 5% 5%;
-    --card: 180 20% 99%;
-    --card-foreground: 180 5% 5%;
-    --popover: 180 20% 99%;
-    --popover-foreground: 180 5% 5%;
-    --primary: 162 47% 50%;
-    --primary-foreground: 180 5% 5%;
-    --secondary: 180 5% 96%;
-    --secondary-foreground: 180 5% 5%;
-    --muted: 180 5% 96%;
-    --muted-foreground: 180 5% 40%;
-    --accent: 162 47% 50%;
-    --accent-foreground: 180 5% 5%;
+    --background: 260 25% 98%;
+    --foreground: 260 35% 5%;
+    --card: 260 25% 98%;
+    --card-foreground: 260 35% 5%;
+    --popover: 260 25% 98%;
+    --popover-foreground: 260 35% 5%;
+    --primary: 260 60% 50%;
+    --primary-foreground: 260 25% 98%;
+    --secondary: 260 25% 96%;
+    --secondary-foreground: 260 35% 5%;
+    --muted: 260 25% 96%;
+    --muted-foreground: 260 35% 40%;
+    --accent: 260 60% 50%;
+    --accent-foreground: 260 35% 5%;
     --destructive: 0 84% 60%;
-    --destructive-foreground: 180 20% 99%;
-    --border: 180 5% 90%;
-    --input: 180 5% 90%;
-    --ring: 162 47% 50%;
+    --destructive-foreground: 260 25% 98%;
+    --border: 260 25% 90%;
+    --input: 260 25% 90%;
+    --ring: 260 60% 50%;
     --radius: 0.75rem;
   }
+  
   .dark {
-    --background: 180 10% 4%;
-    --foreground: 180 5% 96%;
-    --card: 180 10% 6%;
-    --card-foreground: 180 5% 96%;
-    --popover: 180 10% 4%;
-    --popover-foreground: 180 5% 96%;
-    --primary: 162 47% 50%;
-    --primary-foreground: 180 10% 4%;
-    --secondary: 180 10% 8%;
-    --secondary-foreground: 180 5% 96%;
-    --muted: 180 10% 8%;
-    --muted-foreground: 180 5% 65%;
-    --accent: 162 47% 50%;
-    --accent-foreground: 180 5% 96%;
+    --background: 260 35% 4%;
+    --foreground: 260 25% 96%;
+    --card: 260 35% 6%;
+    --card-foreground: 260 25% 96%;
+    --popover: 260 35% 4%;
+    --popover-foreground: 260 25% 96%;
+    --primary: 260 60% 50%;
+    --primary-foreground: 260 35% 98%;
+    --secondary: 260 35% 8%;
+    --secondary-foreground: 260 25% 96%;
+    --muted: 260 35% 8%;
+    --muted-foreground: 260 25% 65%;
+    --accent: 260 60% 50%;
+    --accent-foreground: 260 25% 96%;
     --destructive: 0 62% 30%;
-    --destructive-foreground: 180 5% 96%;
-    --border: 180 10% 8%;
-    --input: 180 10% 8%;
-    --ring: 162 47% 50%;
+    --destructive-foreground: 260 25% 96%;
+    --border: 260 35% 8%;
+    --input: 260 35% 8%;
+    --ring: 260 60% 50%;
   }
 }
 
@@ -69,29 +74,20 @@ body {
 
 @layer utilities {
   .glass-card {
-    background: linear-gradient(
-      to bottom right,
-      rgba(255, 255, 255, 0.05),
-      rgba(255, 255, 255, 0.02)
-    );
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
   }
 }
 
-.bg-grid-white {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.02)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
-}
-
 .glass-card {
-  background: rgba(16, 24, 24, 0.7);
+  background: rgba(14, 15, 33, 0.7);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .gradient-bg {
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(45, 212, 191, 0.15) 0%,
-    rgba(17, 94, 89, 0.15) 25%,
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(81, 51, 133, 0.15) 0%,
+    rgba(30, 19, 45, 0.15) 25%,
     rgba(0, 0, 0, 0) 50%
   );
 }
@@ -99,22 +95,26 @@ body {
 .hero-gradient {
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0) 100% rgba(17, 94, 89, 0.1) 50%,
-    rgba(45, 212, 191, 0.2) 0%
+    rgba(0, 0, 0, 0) 100%,
+    rgba(30, 19, 45, 0.1) 50%,
+    rgba(81, 51, 133, 0.2) 0%
   );
 }
+
 .oreh-gradient {
   background: linear-gradient(
     135deg,
-    rgba(24, 133, 118, 0.158) 0%,
-    rgba(17, 94, 89, 0) 50%,
-    rgba(4, 32, 31, 0.062) 100%
+    rgba(81, 51, 133, 0.158) 0%,
+    rgba(30, 19, 45, 0) 50%,
+    rgba(14, 15, 33, 0.062) 100%
   );
 }
+
 .gradient-oreh {
   background: linear-gradient(
     135deg,
-    rgba(4, 32, 31, 0.062) 100% rgba(17, 94, 89, 0) 50%,
-    rgba(24, 133, 118, 0.158) 0%
+    rgba(14, 15, 33, 0.062) 100%,
+    rgba(30, 19, 45, 0) 50%,
+    rgba(81, 51, 133, 0.158) 0%
   );
 }
