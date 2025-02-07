@@ -5,6 +5,7 @@ import { type Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 import "../styles/globals.css";
+import Navbar from "@/components/landingpage/Navbar";
 
 const catamaran = Inter({ subsets: ["latin"] });
 
@@ -19,11 +20,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={catamaran.className} suppressHydrationWarning>
-      <body >
-        <ThemeProvider  attribute="class" defaultTheme="dark"  enableSystem>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <TRPCReactProvider>
+            <Navbar />
             {children}
-            <Toaster expand richColors/>
+            <Toaster expand richColors />
             <Footer />
           </TRPCReactProvider>
         </ThemeProvider>

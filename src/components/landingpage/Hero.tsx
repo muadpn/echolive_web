@@ -39,7 +39,7 @@ export default function Hero() {
               easy-to-integrate widgets. Perfect for modern web applications.
             </p>
             <div className="flex justify-start gap-4">
-              <Link href="/signup">
+              <Link href="/auth/signup">
                 <Button className="gap-2 rounded-xl text-white font-semibold ">
                   Start for Free <ArrowRight className="h-4 w-4" />
                 </Button>

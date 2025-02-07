@@ -39,22 +39,25 @@ export default async function Navbar() {
             Docs
           </Link>
         </nav>
-        <div className="flex items-center  space-x-4">
+        <div className="flex items-center space-x-4">
           {session ? (
-            <form action={signout}>
-              <Button variant="secondary" type="submit">
-                Logout
-              </Button>
-            </form>
+            <>
+              <Link href="/dashboard">
+                <Button className="rounded-xl">Dashboard</Button>
+              </Link>
+              <form action={signout}>
+                <Button variant="secondary" type="submit">
+                  Logout
+                </Button>
+              </form>
+            </>
           ) : (
             <>
               <Link href="/auth/signin">
                 <Button variant="ghost">Login</Button>
               </Link>
               <Link href="/auth/signup">
-                <Button className="rounded-xl" >
-                  Get Started
-                </Button>
+                <Button className="rounded-xl">Get Started</Button>
               </Link>
             </>
           )}
