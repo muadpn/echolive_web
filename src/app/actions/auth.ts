@@ -23,10 +23,10 @@ export async function signup(formData: FormData): Promise<AuthResponse> {
     },
   });
 
-  console.log("data:", data);
+  // console.log("data:", data);
 
   if (error) {
-    console.log(error);
+    // console.log(error.message);
     return {
       data: null,
       error: "Signup failed please try again",
