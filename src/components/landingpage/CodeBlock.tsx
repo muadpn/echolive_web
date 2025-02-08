@@ -25,7 +25,7 @@ export default function CodeBlock() {
     }, 3000);
 
     return () => clearInterval(tagInterval);
-  }, []);
+  }, [tags.length]);
 
   const copyToClipboard = async (text: string, type: string) => {
     try {

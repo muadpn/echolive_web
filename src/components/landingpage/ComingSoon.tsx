@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, Hourglass, Rocket, Shapes, Sparkles } from "lucide-react";
+import { type Clock, Hourglass, Rocket, Shapes, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 interface FeatureCardProps {
