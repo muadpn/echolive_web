@@ -1,4 +1,5 @@
 import RegisterDomain from "@/components/dashboard/RegisterDomain";
+import UserDomainsList from "@/components/dashboard/UserDomainsList";
 
 export default function DashboardPage() {
   // const [domains, setDomains] = useState<{ name: string; url: string }[]>([]);
@@ -18,6 +19,8 @@ export default function DashboardPage() {
 
       <div className="mt-6">
         <h2 className="text-lg font-semibold">Added Domains</h2>
+        {/* ADD domains fetching code here */}
+        <UserDomainsList/>
         {/* <ul className="mt-2 space-y-2">
           {domains.map((domain, index) => (
             <li

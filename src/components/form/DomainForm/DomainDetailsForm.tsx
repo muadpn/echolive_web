@@ -43,7 +43,12 @@ export default function DomainDetailsForm() {
     });
 
   async function onSubmit(values: TDomainDetailsFormValidator) {
-    addDomainDetails(values);
+    try {
+      addDomainDetails(values);
+    } catch (error) {
+      console.log(error);
+      return 
+    }
   }
 
   return (

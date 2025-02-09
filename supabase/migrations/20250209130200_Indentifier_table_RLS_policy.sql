@@ -2,8 +2,8 @@ create table "public"."Identifier" (
     "id" uuid not null default gen_random_uuid(),
     "website_details_id" uuid not null,
     "domain_api_key" character varying not null,
-    "status" text
-    "created_at" timestamp with time zone not null default now(),
+    "status" text,
+    "created_at" timestamp with time zone not null default now()
 );
 
 

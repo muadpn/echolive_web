@@ -713,6 +713,38 @@ export type Database = {
   }
   public: {
     Tables: {
+      Identifier: {
+        Row: {
+          created_at: string
+          domain_api_key: string
+          id: string
+          status: string | null
+          website_details_id: string
+        }
+        Insert: {
+          created_at?: string
+          domain_api_key: string
+          id?: string
+          status?: string | null
+          website_details_id: string
+        }
+        Update: {
+          created_at?: string
+          domain_api_key?: string
+          id?: string
+          status?: string | null
+          website_details_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "Identifier_website_details_id_fkey"
+            columns: ["website_details_id"]
+            isOneToOne: false
+            referencedRelation: "website_details"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       users: {
         Row: {
           createdAt: string
