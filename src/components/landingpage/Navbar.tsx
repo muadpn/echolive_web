@@ -43,7 +43,7 @@ export default async function Navbar() {
           {session ? (
             <>
               <Link href="/dashboard">
-                <Button className="rounded-xl">Dashboard</Button>
+                <Button className="">Dashboard</Button>
               </Link>
               <form action={signout}>
                 <Button variant="secondary" type="submit">
@@ -57,7 +57,7 @@ export default async function Navbar() {
                 <Button variant="ghost">Login</Button>
               </Link>
               <Link href="/auth/signup">
-                <Button className="rounded-xl">Get Started</Button>
+                <Button className="">Get Started</Button>
               </Link>
             </>
           )}
