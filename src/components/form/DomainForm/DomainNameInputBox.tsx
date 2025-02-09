@@ -1,15 +1,14 @@
 import {
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-  } from "@/components/ui/form";
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { type TDomainHookForm } from "@/types/forms.types";
-  
-  
-export default function DomainNameInputBox({ form }:TDomainHookForm) {
+
+export default function DomainNameInputBox({ form }: TDomainHookForm) {  
   return (
     <FormField
       control={form.control}
@@ -18,7 +17,11 @@ export default function DomainNameInputBox({ form }:TDomainHookForm) {
         <FormItem>
           <FormLabel>Domain</FormLabel>
           <FormControl>
-            <Input placeholder="eg: www.vercel.com" {...field} value={field.value}/>
+            <Input
+              placeholder="eg: www.vercel.com"
+              {...field}
+              value={field.value}
+            />
           </FormControl>
           <FormMessage />
         </FormItem>
