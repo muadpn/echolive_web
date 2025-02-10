@@ -1,9 +1,9 @@
+import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Button, buttonVariants } from "../ui/button";
+import { buttonVariants } from "../ui/button";
 import ShinyText from "../ui/Shinytext";
 import SplitText from "../ui/Splittext";
-import { cn } from "@/lib/utils";
 
 export default function Hero() {
   return (
@@ -49,10 +49,14 @@ export default function Hero() {
               >
                 Start for Free <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="#demo">
-                <Button variant="ghost" className="rounded-xl border">
-                  View Demo
-                </Button>
+              <Link
+                href="#demo"
+                className={cn(
+                  buttonVariants({ variant: "ghost" }),
+                  "rounded-xl border",
+                )}
+              >
+                View Demo
               </Link>
             </div>
           </div>
