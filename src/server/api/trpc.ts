@@ -13,6 +13,7 @@ import { ZodError } from "zod";
 
 import { auth } from "@/server/auth";
 import { db } from "@/server/db";
+import { createClient } from "@/utils/supabase/server";
 
 /**
  * 1. CONTEXT
@@ -108,7 +109,26 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
  * guarantee that a user querying is authorized, but you can still access user session data if they
  * are logged in.
  */
+export const userMiddleware = t.middleware(async (opts) => {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    throw new TRPCError({
+      code: "UNAUTHORIZED",
+      message: "Please login continue",
+    });
+  }
+  return opts.next({
+    ctx: { user: user },
+  });
+});
+
 export const publicProcedure = t.procedure.use(timingMiddleware);
+
+export const adminProcedure = t.procedure.use(userMiddleware);
 
 /**
  * Protected (authenticated) procedure

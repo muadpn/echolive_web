@@ -1,29 +1,27 @@
-"use client";
-
-import GenerateKey from "@/components/dashboard/GenerateKey";
 import RegisterDomain from "@/components/dashboard/RegisterDomain";
-import { Settings } from "lucide-react";
-import { useState } from "react";
+import UserDomainsList from "@/components/dashboard/UserDomainsList";
 
 export default function DashboardPage() {
-  const [domains, setDomains] = useState<{ name: string; url: string }[]>([]);
-  const [selectedDomain, setSelectedDomain] = useState<number | null>(null);
+  // const [domains, setDomains] = useState<{ name: string; url: string }[]>([]);
+  // const [selectedDomain, setSelectedDomain] = useState<number | null>(null);
 
-  const handleAddDomain = (name: string, url: string) => {
-    setDomains([...domains, { name, url }]); // Store new domain
-  };
+  // const handleAddDomain = (name: string, url: string) => {
+  //   setDomains([...domains, { name, url }]); // Store new domain
+  // };
 
   return (
     <div className="flex-1 space-y-4 p-4 pt-6 md:p-8">
       <div className="flex items-center justify-center">
         <div className="flex items-center space-x-2">
-          <RegisterDomain onAddDomain={handleAddDomain} />
+          <RegisterDomain />
         </div>
       </div>
 
       <div className="mt-6">
         <h2 className="text-lg font-semibold">Added Domains</h2>
-        <ul className="mt-2 space-y-2">
+        {/* ADD domains fetching code here */}
+        <UserDomainsList/>
+        {/* <ul className="mt-2 space-y-2">
           {domains.map((domain, index) => (
             <li
               key={index}
@@ -39,10 +37,10 @@ export default function DashboardPage() {
               />
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
 
-      {selectedDomain !== null && <GenerateKey />}
+      {/* {selectedDomain !== null && <GenerateKey />} */}
     </div>
   );
 }

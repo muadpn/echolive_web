@@ -31,7 +31,7 @@ body {
     --border: 260 25% 90%;
     --input: 260 25% 90%;
     --ring: 260 60% 50%;
-    --radius: 0.75rem;
+    --radius: 0.3rem;
   }
   
   .dark {
@@ -54,6 +54,7 @@ body {
     --border: 260 35% 8%;
     --input: 260 35% 8%;
     --ring: 260 60% 50%;
+    --radius: 0.3rem;
   }
 }
 
