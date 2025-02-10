@@ -1,28 +1,29 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import ShinyText from "../ui/Shinytext";
 import SplitText from "../ui/Splittext";
+import { cn } from "@/lib/utils";
 
 export default function Hero() {
   return (
-    <section className="py-20 px-4 relative overflow-hidden">
+    <section className="relative overflow-hidden px-4 py-20">
       <div className="grid grid-cols-1">
         <div>
           <div className="absolute inset-0 bg-gradient-to-br from-[#1E132D] via-[#010102be] to-[#0f0925]" />
-          <div className="container mx-auto relative px-4">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+          <div className="container relative mx-auto px-4">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
               <ShinyText
                 text="The most affordable real-time widgets for your website"
                 disabled={false}
                 speed={3}
-                className="custom-class "
+                className="custom-class"
               />
             </div>
-            <h1 className="text-5xl md:text-7xl  font-semibold tracking-tight mb-6 max-w-md md:max-w-xl lg:max-w-4xl">
+            <div className="mb-6 max-w-md text-5xl font-semibold tracking-tight md:max-w-xl md:text-7xl lg:max-w-4xl">
               <SplitText
                 text="Real-time Widgets Made Simple"
-                className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-6 bg-clip-text  bg-gradient-to-r from-white via-purple-200  to-purple-300 text-purple-100"
+                className="mb-6 bg-gradient-to-r from-white via-purple-200 to-purple-300 bg-clip-text text-5xl font-semibold tracking-tight text-purple-100 md:text-7xl lg:text-8xl"
                 delay={60}
                 animationFrom={{
                   opacity: 0,
@@ -33,19 +34,23 @@ export default function Hero() {
                 rootMargin="-50px"
               />
               <br />
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
+            </div>
+            <p className="mb-8 max-w-2xl text-xl text-muted-foreground">
               Track your website visitors in real-time with our powerful and
               easy-to-integrate widgets. Perfect for modern web applications.
             </p>
             <div className="flex justify-start gap-4">
-              <Link href="/auth/signup">
-                <Button className="gap-2 rounded-xl text-white font-semibold ">
-                  Start for Free <ArrowRight className="h-4 w-4" />
-                </Button>
+              <Link
+                href="/auth/signup"
+                className={cn(
+                  buttonVariants(),
+                  "gap-2 rounded-xl font-semibold text-white",
+                )}
+              >
+                Start for Free <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href="#demo">
-                <Button variant="ghost" className="border rounded-xl">
+                <Button variant="ghost" className="rounded-xl border">
                   View Demo
                 </Button>
               </Link>
