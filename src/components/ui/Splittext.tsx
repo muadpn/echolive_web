@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useSprings, animated } from "@react-spring/web";
 import type { SpringConfig } from "@react-spring/web";
@@ -81,11 +81,15 @@ const SplitText: React.FC<SplitTextProps> = ({
       ref={ref}
       className={`split-parent inline overflow-hidden ${className}`}
       style={{ textAlign, whiteSpace: "normal", wordWrap: "break-word" }}
+      aria-label={text}
+      role="heading"
+      aria-level={1}
     >
       {words.map((word, wordIndex) => (
         <span
           key={wordIndex}
           style={{ display: "inline-block", whiteSpace: "nowrap" }}
+          aria-hidden
         >
           {word.map((letter, letterIndex) => {
             const index =

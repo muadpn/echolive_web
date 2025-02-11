@@ -1,171 +1,152 @@
 import { Check } from "lucide-react";
 import { Button } from "../ui/button";
 
+const PRICING_PLANS = [
+  {
+    id: "free",
+    name: "Developer",
+    price: "$0",
+    description: "Perfect for getting started",
+    features: [
+      "1 website",
+      "Up to 1,000 monthly visitors",
+      "Basic analytics",
+      "Community support",
+    ],
+    buttonText: "Get Started",
+    buttonVariant: "secondary",
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    price: "$19",
+    description: "For growing websites",
+    features: [
+      "Up to 5 websites",
+      "Unlimited monthly visitors",
+      "Advanced analytics",
+      "Priority email support",
+      "Custom domains",
+    ],
+    buttonText: "Upgrade Now",
+    buttonVariant: "primary",
+    popular: true,
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    price: "Custom",
+    description: "For large-scale applications",
+    features: [
+      "Unlimited websites",
+      "Unlimited monthly visitors",
+      "Custom analytics",
+      "24/7 phone support",
+      "SLA guarantee",
+    ],
+    buttonText: "Contact Sales",
+    buttonVariant: "secondary",
+  },
+];
+
+const SHARED_FEATURES = [
+  "Unlimited API calls",
+  "99.9% uptime SLA",
+  "Enterprise security",
+];
+
+function PriceTag({ price }: { price: string }) {
+  return (
+    <div className="flex items-baseline">
+      <span className="text-5xl font-bold">{price}</span>
+      {price !== "Custom" && (
+        <span className="ml-2 text-muted-foreground">/month</span>
+      )}
+    </div>
+  );
+}
+
+function FeatureList({ features }: { features: string[] }) {
+  return (
+    <ul className="mb-8 flex-grow space-y-4">
+      {features.map((feature) => (
+        <li key={feature} className="flex items-center">
+          <Check className="mr-2 h-5 w-5 text-primary" />
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function PricingCard({ plan }: { plan: (typeof PRICING_PLANS)[number] }) {
+  const buttonStyles: { [key: string]: string } = {
+    primary: "bg-primary hover:bg-primary/90 text-primary-foreground",
+    secondary: "bg-white/10 hover:bg-white/20 text-white border-0",
+  };
+
+  return (
+    <div className="group relative">
+      <div
+        className={`absolute inset-0 rounded-3xl blur-xl transition-all duration-500 group-hover:blur-2xl ${
+          plan.popular
+            ? "bg-gradient-to-r from-primary to-primary/50 opacity-20"
+            : "bg-gradient-to-r from-primary/20 to-primary/10 opacity-0 group-hover:opacity-0"
+        }`}
+      />
+      <div className="relative rounded-3xl border border-primary/20 bg-black/40 p-8 backdrop-blur-xl transition-colors duration-300 hover:border-primary">
+        {plan.popular && (
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-sm font-medium text-primary-foreground">
+            Most Popular
+          </div>
+        )}
+        <div className="flex h-full flex-col">
+          <div className="mb-8">
+            <div className="mb-4 font-semibold text-muted-foreground">
+              {plan.name}
+            </div>
+            <PriceTag price={plan.price} />
+            <p className="mt-4 text-muted-foreground">{plan.description}</p>
+          </div>
+          <FeatureList features={plan.features} />
+          <Button className={`w-full ${buttonStyles[plan.buttonVariant]}`}>
+            {plan.buttonText}
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background " />
-      <div className="container mx-auto px-4 relative">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
-            Simple, Transparent{" "}
-            <span className="text-primary/90">Pricing</span>
+    <section id="pricing" className="relative overflow-hidden py-24">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+      <div className="container relative mx-auto px-4">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+            Simple, Transparent <span className="text-primary/90">Pricing</span>
           </h2>
           <p className="text-xl text-muted-foreground">
             Start for free, scale as you grow
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Free Plan */}
-          <div className="relative group ">
-            <div className="absolute   inset-0 bg-gradient-to-r from-primary/20 to-primary/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-0" />
-            <div className="relative  bg-black/40 border border-primary/20 backdrop-blur-xl rounded-3xl p-8 hover:border-primary transition-colors duration-300 ">
-              <div className="flex flex-col h-full">
-                <div className="mb-8">
-                  <div className="font-semibold text-muted-foreground mb-4">
-                    Developer
-                  </div>
-                  <div className="flex items-baseline">
-                    <span className="text-5xl font-bold">$0</span>
-                    <span className="text-muted-foreground ml-2">/month</span>
-                  </div>
-                  <p className="text-muted-foreground mt-4">
-                    Perfect for getting started
-                  </p>
-                </div>
-
-                <ul className="space-y-4 mb-8 flex-grow">
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>1 website</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Up to 1,000 monthly visitors</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Basic analytics</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Community support</span>
-                  </li>
-                </ul>
-
-                <Button className="w-full bg-white/10 hover:bg-white/20 text-white border-0">
-                  Get Started
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Pro Plan */}
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/50 rounded-3xl blur-xl opacity-20 group-hover:blur-2xl transition-all duration-500" />
-            <div className="relative bg-black/40 border border-primary/20 backdrop-blur-xl rounded-3xl p-8 hover:border-primary  transition-colors duration-300">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
-                Most Popular
-              </div>
-              <div className="flex flex-col h-full">
-                <div className="mb-8">
-                  <div className="font-semibold text-muted-foreground mb-4">
-                    Pro
-                  </div>
-                  <div className="flex items-baseline">
-                    <span className="text-5xl font-bold">$19</span>
-                    <span className="text-muted-foreground ml-2">/month</span>
-                  </div>
-                  <p className="text-muted-foreground mt-4">
-                    For growing websites
-                  </p>
-                </div>
-
-                <ul className="space-y-4 mb-8 flex-grow">
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Up to 5 websites</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Unlimited monthly visitors</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Advanced analytics</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Priority email support</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Custom domains</span>
-                  </li>
-                </ul>
-
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Upgrade Now
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Enterprise Plan */}
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-0" />
-            <div className="relative bg-black/40 border border-primary/20 backdrop-blur-xl rounded-3xl p-8 hover:border-primary  transition-colors duration-300">
-              <div className="flex flex-col h-full">
-                <div className="mb-8">
-                  <div className="font-semibold text-muted-foreground mb-4">
-                    Enterprise
-                  </div>
-                  <div className="flex items-baseline">
-                    <span className="text-5xl font-bold">Custom</span>
-                  </div>
-                  <p className="text-muted-foreground mt-4">
-                    For large-scale applications
-                  </p>
-                </div>
-
-                <ul className="space-y-4 mb-8 flex-grow">
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Unlimited websites</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Unlimited monthly visitors</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>Custom analytics</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>24/7 phone support</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-5 w-5 text-primary mr-2" />
-                    <span>SLA guarantee</span>
-                  </li>
-                </ul>
-
-                <Button className="w-full bg-white/10 hover:bg-white/20 text-white border-0">
-                  Contact Sales
-                </Button>
-              </div>
-            </div>
-          </div>
+        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
+          {PRICING_PLANS.map((plan) => (
+            <PricingCard key={plan.id} plan={plan} />
+          ))}
         </div>
 
         <div className="mt-16 text-center">
           <p className="text-muted-foreground">
             All plans include:{" "}
-            <span className="text-primary">Unlimited API calls</span> •{" "}
-            <span className="text-primary">99.9% uptime SLA</span> •{" "}
-            <span className="text-primary">Enterprise security</span>
+            {SHARED_FEATURES.map((feature, index) => (
+              <span key={feature}>
+                {index > 0 && " • "}
+                <span className="text-primary">{feature}</span>
+              </span>
+            ))}
           </p>
         </div>
       </div>
