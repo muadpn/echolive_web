@@ -15,3 +15,9 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+Cypress.on("uncaught:exception", (err, runnable) => {
+    if (err.message.includes("NEXT_REDIRECT")) {
+      return false; // Ignore the error and continue the test
+    }
+  });
