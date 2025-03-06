@@ -7,12 +7,12 @@ import { BarChart3, Settings, Layout, Terminal } from "lucide-react"
 
 const items = [
   {
-    title: "Overview",
+    title: "Dashboard",
     href: "/dashboard",
     icon: BarChart3
   },
   {
-    title: "Websites",
+    title: "Overview",
     href: "/dashboard/websites",
     icon: Layout
   },
